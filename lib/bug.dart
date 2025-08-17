@@ -13,7 +13,7 @@ class Bug extends SpriteComponent
     with TapCallbacks, HasGameReference<BugSquashGame> {
   late SpriteComponent _squashedBugComponent;
   Function()? onTap;
-
+  var _isAlive = true;
   late MoveEffect _moveEffect;
   @override
   FutureOr<void> onLoad() async {
@@ -52,6 +52,11 @@ class Bug extends SpriteComponent
     }
     FlameAudio.play('squash.mp3');
     _squashedBugComponent.opacity = 1.0;
-    onTap?.call();
+    // onTap?.call();
+
+    if (_isAlive) {
+      _isAlive = false;
+      onTap?.call();
+    }
   }
 }
