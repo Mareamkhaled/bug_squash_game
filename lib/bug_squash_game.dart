@@ -16,6 +16,7 @@ class BugSquashGame extends FlameGame{
   FutureOr<void> onLoad()async {
    final bugComponent = Bug();
     bugComponent.position = Vector2(size.x / 2, size.y / 2);
+    // print('Bug position: ${bugComponent.position}');
     bugComponent.anchor = Anchor.center;  
     add(bugComponent);
     return super.onLoad();
