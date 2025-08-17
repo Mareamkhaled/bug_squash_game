@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:bug_squash_game/bug_squash_game.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -13,7 +14,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(BugSquashGame());
+    await tester.pumpWidget(GameWidget(game: BugSquashGame()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
