@@ -4,21 +4,19 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 
+import 'bug.dart';
+
 class BugSquashGame extends FlameGame{
   @override
   Color backgroundColor() {
-  return const Color(0xFFB2DFDB); // 
+  return const Color.fromARGB(255, 111, 167, 163); // 
   }
 
   @override
   FutureOr<void> onLoad()async {
-   final bugSprite = await Sprite.load('bug.png');
-   final bugComponent = SpriteComponent(
-      sprite: bugSprite,
-      anchor: Anchor.center, 
-      size: Vector2(100, 150), 
-      position: Vector2(100, 300)
-    );
+   final bugComponent = Bug();
+    bugComponent.position = Vector2(size.x / 2, size.y / 2);
+    bugComponent.anchor = Anchor.center;  
     add(bugComponent);
     return super.onLoad();
   }
